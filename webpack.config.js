@@ -34,6 +34,13 @@ module.exports = {
               name: '[name].[ext]',
             },
           },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disabled: true,
+              quality: 65,
+            },
+          },
         ],
       },
       {
