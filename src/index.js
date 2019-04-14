@@ -1,17 +1,7 @@
-import $ from 'jquery';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './style.scss';
 
+const App = () => <div className="test">All the REACT are belong to us!</div>;
 
-// References https://codeburst.io/javascript-arrow-functions-for-beginners-926947fc0cdc
-function CountSeconds() {
-  this.seconds = 0;
-  this.counter = setInterval(() => {
-    this.seconds += 1;
-    const message = `You've been on this page for ${this.seconds} seconds`;
-    $('#main').html(message);
-  }, 1000);
-}
-
-const counting = new CountSeconds();
-
-console.log(counting);
+ReactDOM.render(<App />, document.getElementById('main'));
