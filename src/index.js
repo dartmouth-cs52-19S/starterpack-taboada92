@@ -1,7 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './style.scss';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import reducers from './reducers';
+import App from './components/app';
 
-const App = () => <div className="test">All the REACT are belong to us!</div>;
+const store = createStore(reducers, {}, compose(
+  applyMiddleware(),
+  window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f,
+));
 
-ReactDOM.render(<App />, document.getElementById('main'));
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('main'),
+);
